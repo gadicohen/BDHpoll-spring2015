@@ -6,8 +6,12 @@
 
 @import url(style.css);
 
+#circle circle{
+fill:none;
+}
+
 .background {
-  fill: #eee;
+  fill: white;
 }
 
 line {
@@ -16,6 +20,24 @@ line {
 
 text.active {
   fill: red;
+}
+
+.active { 
+  fill: blue;
+}
+
+.active .chord {
+  background: blue;
+  fill: blue;
+
+}
+
+#circle:hover path.fade {
+  display: none;
+}
+
+#circle:hover path.active {
+  display: initial;
 }
 
 </style>
@@ -39,7 +61,7 @@ To look at detailed statistics for a pair of questions, click on the correspondi
 
 <script>
 
-var colors = ["#69D2E7","#A7DBD8","#E0E4CC","#F38630","#588C7E","#F2E394","#F2AE72","#D96459","#8C4646","#59323C","#260126","#F2EEB3","#8C6954","#3F2860", "#90C5A9", "#7A9A95", "#EF6D3B", "#FA8B60","#FFFFFF","#C63D0F"];
+var colors = ["#69D2E7","#69D2E7", "#69D2E7","#69D2E7","#69D2E7","#69D2E7", "#69D2E7","#69D2E7","#69D2E7","#69D2E7", "#69D2E7","#69D2E7","#69D2E7","#69D2E7", "#69D2E7","#69D2E7","#69D2E7","#69D2E7", "#69D2E7","#69D2E7"];
 var width = 720,
 height = 720,
 outerRadius = Math.min(width, height) / 2 - 10,
@@ -77,7 +99,6 @@ var group = svg.selectAll(".group")
 .data(layout.groups)
 .enter().append("g")
 .attr("class", "group");
-//.on("mouseover", mouseover);
  
   var matrix = [],
       nodes = miserables.nodes,
@@ -96,7 +117,6 @@ var group = svg.selectAll(".group")
   nodes.forEach(function(node, i) {
     node.index = i;
     node.count = 0;
-    console.log(node);
     names[i] = node.name;
     matrix[i] = d3.range(n).map(function(j) { return {x: j, y: i, z: 0, name: node.name}; });
   });
@@ -112,21 +132,19 @@ var group = svg.selectAll(".group")
     nodes[link.target].count += link.value;
   });
 
-  console.log(matrix);
   layout.matrix(matrix1);
-  console.log("DFSDFSADFSDFSA");
-  console.log(matrix1);
-
-
 
 var group = svg.selectAll(".group")
+
 .data(layout.groups)
 .enter().append("g")
 .attr("class", "group");
-//.on("mouseover", mouseover);
 
 var groupPath = group.append("path")
+.on("mouseover",mouseover)
+//.on("mouseout",mouseout)
 .attr("id", function(d, i) { return "group" + i; })
+.attr("class","active")
 .attr("d", arc)
 .style("fill", function(d, i) { return colors[i]; });
 
@@ -142,7 +160,10 @@ groupText.append("textPath")
 groupText.filter(function(d, i) { return groupPath[0][i].getTotalLength() / 2 - 16 < this.getComputedTextLength(); })
 .remove();
 
+
+
 var chord = svg.selectAll(".chord")
+
 .data(layout.chords)
 .enter().append("path")
 .attr("class", "chord")
@@ -150,6 +171,21 @@ var chord = svg.selectAll(".chord")
 .attr("d", path);});
  
 
+function mouseover(d, i) {
+  console.log("dfasdfsdfsdfs");
+  svg.selectAll(".chord").classed("fade", function(p) {
+    return p.source.index != i
+    && p.target.index != i;
+  });
+  }
+function mouseout(d, i) {
+  console.log("4244");
+  svg.selectAll(".chord").classed("active", function(p) {
+    return p.source.index != i
+    && p.target.index != i;
+  });
+  }
+ 
 /*
 
   // Precompute the orders.
