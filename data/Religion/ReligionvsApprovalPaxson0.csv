@@ -1,0 +1,11 @@
+Option,Strongly approve,Somewhat approve,No opinion,Somewhat disapprove,Strongly disapprove
+Protestant,16,41,50,6,1
+Catholic,27,52,67,7,2
+Other Christian,4,25,31,6,0
+Jewish,16,35,47,11,1
+Muslim,3,4,5,1,0
+Hindu,3,8,6,0,0
+Buddhist,1,10,9,4,1
+Other religion,12,25,57,12,3
+Agnostic,13,53,107,10,2
+Atheist,17,62,92,13,2

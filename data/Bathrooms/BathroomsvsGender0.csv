@@ -1,0 +1,5 @@
+Option,Male,Female,Other
+"Yes, I support converting all bathrooms",128,148,4
+"Yes, I support converting some bathrooms",206,262,3
+"No, I do not support converting any bathrooms",60,94,0
+Don't know,72,31,0

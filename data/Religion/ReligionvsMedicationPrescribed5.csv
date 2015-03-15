@@ -1,0 +1,11 @@
+Option,Bipolar disorder,Not Bipolar disorder
+Protestant,1,111
+Catholic,0,152
+Other Christian,0,64
+Jewish,0,110
+Muslim,0,13
+Hindu,0,16
+Buddhist,1,24
+Other religion,1,105
+Agnostic,3,181
+Atheist,0,181

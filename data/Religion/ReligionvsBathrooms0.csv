@@ -1,0 +1,11 @@
+Option,"Yes, I support converting all bathrooms","Yes, I support converting some bathrooms","No, I do not support converting any bathrooms",Don't know
+Protestant,24,50,24,15
+Catholic,28,73,34,19
+Other Christian,16,32,9,7
+Jewish,28,62,12,8
+Muslim,3,2,6,2
+Hindu,4,7,5,1
+Buddhist,2,17,5,1
+Other religion,38,44,16,12
+Agnostic,57,94,18,16
+Atheist,70,81,20,14
