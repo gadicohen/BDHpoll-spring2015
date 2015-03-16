@@ -1,0 +1,6 @@
+Option,Multiple times a week,Once a week,Once a month,Once a semester,Never
+Multiple times a week,110,0,0,0,0
+Once a week,0,202,0,0,0
+Once a month,0,0,303,0,0
+Once a semester,0,0,0,147,0
+Never,0,0,0,0,247

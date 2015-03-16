@@ -3,10 +3,10 @@ from scipy.stats import chisquare
 import csv, re, json, os, math, string, cgi
 
 ### The following variables only apply to the BDH Spring 2013 Poll.
-OFFSET = 1
-DATA_FILE = "data.csv"
-QUESTION_FILE = "newquestions.csv"
-BAR_GRAPH_FILE = "bar.html"
+OFFSET = 5
+DATA_FILE = "Herald Poll Spring 2015 (Responses) - Form Responses 1.csv"
+QUESTION_FILE = "questions.csv"
+BAR_GRAPH_FILE = "bar1.html"
 CHI_SQUARES = []
 ###
 class Document:
@@ -215,6 +215,7 @@ class PollData:
 		with open(fileName, 'r') as csvFile:
 			reader = csv.reader(csvFile, delimiter=',', quotechar='"')
 			firstLine = reader.next()
+			row_num = 0
 			for row in reader:
 				response = {}
 				for q in self.questions.values():
@@ -227,6 +228,7 @@ class PollData:
 					#else:#invalid answers and no answer
 					#	response[q.id] = None
 				responses.append(response)
+				row_num += 1
 		return responses
 					
 	def parseEntry(self, row, question):
@@ -386,7 +388,7 @@ class PollData:
 				
 				root["links"].append({"source":temp[k], "target":temp[k2], "value":value})
 		
-		f = open('adjacency.json', 'w')
+		f = open('adjacency1.json', 'w')
 		#print "hello!"
 		f.write(json.dumps(root))
 		f.close()
