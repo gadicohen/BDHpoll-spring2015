@@ -93,7 +93,7 @@ var svg = d3.select("body").append("svg")
 svg.append("circle")
 .attr("r", outerRadius);
 
-d3.json("adjacency.json", function(miserables) {
+d3.json("adjacency1.json", function(miserables) {
 
 var group = svg.selectAll(".group")
 .data(layout.groups)
