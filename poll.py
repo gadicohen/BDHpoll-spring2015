@@ -379,13 +379,9 @@ class PollData:
 				for t in tables:
 					curr = 0
 					c = t.chisquare[1]
-					if c < 0.025:
-						curr += 1
-					if c < 0.05:
-						curr += 1
-					if curr > value:
-						value = curr
-				
+					print c, self.questions[k].shortId,temp[k], temp[k2]
+					if c < .1:
+						value = c				
 				root["links"].append({"source":temp[k], "target":temp[k2], "value":value})
 		
 		f = open('adjacency1.json', 'w')
